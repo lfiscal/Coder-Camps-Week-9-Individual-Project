@@ -1,0 +1,116 @@
+﻿<div class="container userinfo">
+                <a href="#/EditUserDeets/{{UserMovieVM.User.Id}}"><div class="btn btn-success edit">Edit</div></a>
+    <div class="row">
+        <div class="box">
+            <div class="col-lg-12 userinfo">
+                <hr>
+                <h2 class="intro-text text-center">
+                    <strong>{{UserDeets.Name}}</strong><br />
+                </h2>
+                <img src="{{UserDeets.PicUrl}}" class="img-rounded"><br />
+                <b>Favorite Movie:</b><p>{{UserDeets.Fav}}</p>
+                <hr>
+            </div>
+            <div class="col-md-6">
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+
+<br />
+
+<div data-ng-controller="homeController">
+    <div class="search">
+        <input type="text" class="searchstuff" ng-model="movieTitle" placeholder="Enter Movie Title" />
+        <input type="button" class="btn btn-danger searchstuff" ng-click="searchMovie()" value="Search" />
+    </div>
+    <br />
+    <div class="box col-xs-9 movie" ng-show="hideDiv()">
+        <div class="col-xs-6 movietitle">
+            <h1>{{imdbMovie.Title}} ({{imdbMovie.Year}})</h1>
+            <img src="{{imdbMovie.Poster}}" /><br />
+
+        </div>
+
+        <div class="col-xs-6 movieInfo">
+            <div>
+                <input type="hidden" value="{{imdbMovie.Title}}" id="Title" readonly />
+                <input type="hidden" value="{{imdbMovie.Year}}" id="Year" readonly />
+                <input type="hidden" value="{{imdbMovie.Poster}}" id="Poster" readonly />
+                <input type="hidden" value="{{imdbMovie.Rated}}" id="Rated" readonly />
+                <input type="hidden" value="{{imdbMovie.Runtime}}" id="Runtime" readonly />
+                <input type="hidden" value="{{imdbMovie.Genre}}" id="Genre" readonly />
+                <input type="hidden" value="{{imdbMovie.Released}}" id="Released" readonly />
+                <input type="hidden" value="{{imdbMovie.Country}}" id="Country" readonly />
+                <input type="hidden" value="{{imdbMovie.Language}}" id="Language" readonly />
+                <input type="hidden" value="{{imdbMovie.imdbRating}}" id="imdbRating" readonly />
+                <input type="hidden" value="{{imdbMovie.Plot}}" id="Plot" readonly />
+                <input type="hidden" value="{{imdbMovie.Director}}" id="Director" readonly />
+                <input type="hidden" value="{{imdbMovie.Actors}}" id="Actors" readonly />
+            </div>
+            <table class="table table-condensed">
+                <tr><td><b>Rated:</b></td><td>{{imdbMovie.Rated}}</td></tr>
+                <tr><td><b>Runtime:</b></td><td>{{imdbMovie.Runtime}}</td></tr>
+                <tr><td><b>Genre:</b></td><td>{{imdbMovie.Genre}}</td></tr>
+                <tr><td><b>Released:</b></td><td>{{imdbMovie.Released}} in ({{imdbMovie.Country}})</td></tr>
+                <tr><td><b>Language:</b></td><td>{{imdbMovie.Language}}</td></tr>
+                <tr><td><b>IMDB Rating:</b></td><td>{{imdbMovie.imdbRating}}</td></tr>
+                <tr><td><b>Plot:</b></td><td>{{imdbMovie.Plot}}</td></tr>
+                <tr><td><b>Director:</b></td><td>{{imdbMovie.Director}}</td></tr>
+                <tr><td><b>Actors</b>:</td><td>{{imdbMovie.Actors}}</td></tr>
+                <tr><td><b>Trailer:</b></td><td ng-bind-html="MovieTrailer"></td></tr>
+                <tr data-ng-controller="UserController">
+                    <td><b>Status:</b></td>
+                    <td>
+                        <select id="Status">
+                            <option selected>Select Status</option>
+                            <option value="Watched">Watched</option>
+                            <option value="Want to Watch">Want to Watch</option>
+                        </select>
+                        <div data-ng-controller="homeController" ng-mouseover="hovered()">
+                            <input type="button" class="btn btn-success" value="Add Movie To List" ng-click="addUserMovie(); getUser();" />
+                        </div>
+                        
+                    </td>
+                </tr>
+            </table>
+            </div>
+    </div>
+        <br /><br />
+
+        </div>
+    <div class="container-fluid well movie grid" ng-mouseover="hovered()">
+
+    <select class="btn btn-default" ng-model="sortExpression" ng-init="sortorder=''">
+        <option value="">Sort By</option>
+        <option value="Title">Title A-Z</option>
+        <option value="-Title">Title Z-A</option>
+        <option value="Year">Oldest to Newest</option>
+        <option value="-Year">Newest to Oldest</option>
+    </select>
+
+    <input class="form-inline searchbox" type="text" ng-model="search" placeholder="Search Added Items" />
+
+    <select class="btn btn-default" ng-model="catfilter" ng-init="sortorder=''">
+        <option value="">Filter By Genre</option>
+        <option value="Horror">Horror</option>
+        <option value="Comedy">Comedy</option>
+        <option value="Drama">Drama</option>
+        <option value="Action">Action</option>
+    </select>
+
+    <select class="btn btn-default" ng-model="status" ng-init="sortorder=''">
+        <option value="">Filter By Status</option>
+        <option value="Watched">Watched</option>
+        <option value="Want to Watch">Want to Watch</option>
+    </select>
+    <br /><br />
+    <div class="row" ng-mouseover="hovered()">
+        <div class="col-xs-3" ng-repeat="movie in allMovies | filter: search |filter: status | filter : catfilter | orderBy: sortExpression">
+            <br />
+
+            <div class="titleyear"><b>{{movie.Title}}&nbsp;({{movie.Year}})</b></div><br /><a href="#/MovieDeets/{{movie.Id}}"><img src="{{movie.Poster}}" width="200" height="295"></a><a class="glyphicon glyphicon-remove-circle" ng-click="deleteMovie(movie.Id)"></a>
+        </div>
+    </div>
+</div>

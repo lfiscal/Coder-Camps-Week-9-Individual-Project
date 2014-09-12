@@ -1,0 +1,117 @@
+﻿<!DOCTYPE html>
+<html ng-app="MovieApp">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Moovies</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/App/CSS/bootstrap-modal-bs3patch.css" rel="stylesheet" />
+    @Scripts.Render("~/bundles/modernizr")
+    <link href="~/App/CSS/StyleSheet.css" rel="stylesheet" />
+    <link href="~/App/CSS/business-casual.css" rel="stylesheet" />
+
+
+
+    <!-- Fonts -->
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic" rel="stylesheet" type="text/css">
+
+</head>
+<body>
+    @*<div class="brand">Business Casual</div>
+        <div class="address-bar">3481 Melrose Place | Beverly Hills, CA 90210 | 123.456.7890</div>*@
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        @*<div class="container">*@
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <!-- navbar-brand is hidden on larger screens, but visible when the menu is collapsed -->
+            <a class="navbar-brand" href="index.html">Business Casual</a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li class="navhome">
+                    <a href="#">Home</a>
+                </li>
+                <li class="navlogin">
+                    <a href="" data-toggle="modal" data-target=".Login">Login</a>
+                </li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+        <!-- /.container -->
+    </nav>
+
+    <div id="Login" class="modal fade Login" tabindex="-1" data-focus-on="input:first">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3>Login</h3>
+        </div>
+        <div class="modal-body">
+            <div data-ng-controller="LoginController">
+                <input type="text" class="input-lg" ng-model="user.UserName" placeholder="Email" /><br />
+                <input type="password" class="input-lg" ng-model="user.Password" placeholder="Password" /><br /><br />
+                <input type="button" class="btn btn-default" data-dismiss="modal" ng-click="login()" value="Login" />
+                <br />
+            </div><br>
+        </div>
+        <div class="modal-footer">
+            <a href="" class="btn btn-default" data-toggle="modal" data-target=".Register">Register</a>
+            <button type="button" data-dismiss="modal" class="btn">Close</button>
+            <button type="button" data-dismiss="modal" class="btn btn-primary">Ok</button>
+        </div>
+    </div>
+
+    <div id="Register" class="modal Register" tabindex="-1" data-focus-on="input:first">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3>Register</h3>
+        </div>
+        <div data-ng-controller="RegisterController" class="well Register">
+            {{newUser.Name}}<br />
+            <img src="{{newUser.PicUrl}}" class="img-rounded">
+            <br />
+            <input type="text" class="input-lg" id="UserName" placeholder="UserName" ng-model="newUser.Name" required /><br />
+            <input type="password" class="input-lg" id="Password" placeholder="Password" ng-model="newUser.Password" required /><br />
+            <input type="text" class="input-lg" id="Pic" placeholder="Picture" ng-model="newUser.PicUrl" /><br />
+            <input type="text" class="input-lg" id="Fav" placeholder="Favorite Movie?" ng-model="newUser.Fav" /><br />
+            <br /><br />
+            <button type="button" data-dismiss="modal" class="btn">Close</button>
+            <input class="btn btn-primary" type="button" value="Create Account" data-dismiss="modal" ng-click="register()" />
+
+        </div>
+    </div>
+
+
+    @RenderBody()
+    <div id="footer">
+        <p>&copy; @DateTime.Now.Year - Moovies</p>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    <script src="~/Scripts/angular.js"></script>
+    <script src="~/Scripts/angular-route.js"></script>
+    <script src="~/Scripts/angular-sanitize.js"></script>
+    <script src="~/App/Scripts/MainScript.js"></script>
+    <script src="~/App/Scripts/Services.js"></script>
+    <script src="~/App/Scripts/HomeController.js"></script>
+    <script src="~/App/Scripts/LoginController.js"></script>
+    <script src="~/App/Scripts/UserController.js"></script>
+    <script src="~/App/Scripts/editController.js"></script>
+    <script src="~/App/Scripts/RegisterController.js"></script>
+    <script src="~/App/Scripts/MovieDeetsController.js"></script>
+    @RenderSection("scripts", required: false)
+
+</body>
+</html>

@@ -1,0 +1,34 @@
+﻿
+<div class="container userinfo">
+    <div class="row">
+        <div class="box">
+            <div class="col-lg-12 userinfo">
+                <hr>
+                <h2 class="intro-text text-center">
+                    <strong>Editing {{UserMovieVM.User.Name}}</strong><br />
+                </h2>
+                <img src="{{UserMovieVM.User.PicUrl}}" class="img-rounded"><br />
+                <b>Favorite Movie:</b><p>{{UserMovieVM.User.Fav}}</p>
+                <hr>
+                
+                <table class="table table-condensed edittable">
+                <tr><td><b>Pic Url:</b></td><td><input type="text" class="input-lg" ng-model="eUser.PicUrl" placeholder="{{UserMovieVM.User.PicUrl}}" /></td></tr>
+                <tr><td><b>Favorite Movie:</b></td><td><input type="text" class="input-lg" ng-model="eUser.Fav" placeholder="{{UserMovieVM.User.Fav}}" /></td></tr>
+                
+                </table>
+                <br /><br />
+                <input type="button" class="btn btn-default" value="Save Changes" ng-click="saveChanges(eUser);" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                <input type="button" class="btn btn-danger" value="Delete Account" ng-click="deleteAccount(UserMovieVM.User.Id)" />
+
+            </div>
+            <div class="col-md-6">
+
+            </div>
+            <div class="clearfix userinfo">
+                <div class="userinfo">
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

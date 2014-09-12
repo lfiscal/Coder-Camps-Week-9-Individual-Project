@@ -1,0 +1,31 @@
+﻿<br />
+<div class="search">
+    <input type="text" class="searchstuff" ng-model="movieTitle" placeholder="Enter Movie Title" />
+    <input type="button" class="btn btn-danger searchstuff" ng-click="searchMovie()" value="Search" />
+</div>
+<br />
+<div class="box col-xs-9 moviewelcome movie" ng-show="!hideDiv()">
+    <img src="http://i.imgur.com/Hs19zLS.jpg" width="855" />
+</div>
+<div class="box col-xs-9 movie" ng-show="hideDiv()">
+    <div class="col-xs-6 movietitle">
+        <h1>{{imdbMovie.Title}} ({{imdbMovie.Year}})</h1>
+        <img src="{{imdbMovie.Poster}}" /><br />
+
+    </div>
+
+    <div class="col-xs-6 movieInfo">
+        <table class="table table-condensed">
+            <tr><td><b>Rated:</b></td><td>{{imdbMovie.Rated}}</td></tr>
+            <tr><td><b>Runtime:</b></td><td>{{imdbMovie.Runtime}}</td></tr>
+            <tr><td><b>Genre:</b></td><td>{{imdbMovie.Genre}}</td></tr>
+            <tr><td><b>Released:</b></td><td>{{imdbMovie.Released}} in ({{imdbMovie.Country}})</td></tr>
+            <tr><td><b>Language:</b></td><td>{{imdbMovie.Language}}</td></tr>
+            <tr><td><b>IMDB Rating:</b></td><td>{{imdbMovie.imdbRating}}</td></tr>
+            <tr><td><b>Plot:</b></td><td>{{imdbMovie.Plot}}</td></tr>
+            <tr><td><b>Director:</b></td><td>{{imdbMovie.Director}}</td></tr>
+            <tr><td><b>Actors</b>:</td><td>{{imdbMovie.Actors}}</td></tr>
+            <tr><td><b>Trailer:</b></td><td ng-bind-html="MovieTrailer"></td></tr>
+        </table>
+    </div>
+</div>

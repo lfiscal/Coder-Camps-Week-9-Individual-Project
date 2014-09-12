@@ -1,0 +1,25 @@
+﻿
+<div class="box well movieDeets">
+
+        <a href="/#/User/{{Movie.User.Id}}" class="btn btn-default back">Back</a><br />
+    <div class="brand">
+        <hr />
+        {{Movie.Title}}
+        <hr />
+
+    </div>
+    <img src="{{Movie.Poster}}" />
+    <br /><br />
+    <table class="table table-condensed">
+        <tr><td><b>Rated:</b></td><td>{{Movie.Rated}}</td></tr>
+        <tr><td><b>Runtime:</b></td><td>{{Movie.Runtime}}</td></tr>
+        <tr><td><b>Genre:</b></td><td>{{Movie.Genre}}</td></tr>
+        <tr><td><b>Released:</b></td><td>{{Movie.Released}} in ({{Movie.Country}})</td></tr>
+        <tr><td><b>Language:</b></td><td>{{Movie.Language}}</td></tr>
+        <tr><td><b>IMDB Rating:</b></td><td>{{Movie.imdbRating}}</td></tr>
+        <tr><td><b>Plot:</b></td><td>{{Movie.Plot}}</td></tr>
+        <tr><td><b>Director:</b></td><td>{{Movie.Director}}</td></tr>
+        <tr><td><b>Actors</b>:</td><td>{{Movie.Actors}}</td></tr>
+    </table>
+
+</div>

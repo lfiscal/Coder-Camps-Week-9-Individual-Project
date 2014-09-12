@@ -1,0 +1,137 @@
+﻿body {
+    padding-top: 70px;
+    padding-bottom: 100px;
+}
+
+.navbar {
+    border-radius: 10px;
+}
+
+.navlogin {
+    margin-left: 520px;
+}
+
+.navhome {
+    margin-right: 160px;
+}
+
+.movieInfo {
+    float: right;
+}
+
+.movieTitle {
+    font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+    text-align: center;
+}
+.box{
+    border-radius:10px;
+}
+.movie {
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    /*margin-top:300px;*/
+    /*margin-bottom: 20px;*/
+    background: #fff;
+    background: rgba(255,255,255,0.9);
+    float:none;
+    /*padding-top: 400px;*/
+}
+.search{
+    text-align:center;
+    background: #fff;
+    background: rgba(255,255,255,0.9);
+    height: 50px;
+    width: 400px;
+    margin-left:auto;
+    margin-right: auto;
+    border-radius: 10px;
+}
+.searchstuff {
+margin-top:10px;
+border-radius: 5px;
+text-align:center;
+}
+#footer{
+   position:fixed;
+   left:0px;
+   bottom:0px;
+   width:100%;
+   background: #fff;
+   background: rgba(255,255,255,0.9);
+   height:35px;
+}
+.modal-body {
+text-align: center;
+}
+.Register{
+    text-align: center;
+
+}
+.userinfo{
+    text-align:center;
+}
+.userinfo a{
+    float:right;
+    margin-top:10px;
+}
+.img-rounded{
+    width: 110px;
+}
+.glyphicon{
+    color:red;
+    position:absolute;
+    top:25px;
+    left:194px;
+    font-size:20px;
+}
+.glyphicon:hover{
+    font-size:40px;
+    color: red;
+    text-decoration: none;
+    position:absolute;
+    top:25px;
+    left: 170px;
+}
+.edittable{
+    width:50%;
+    margin-left:auto;
+    margin-right:auto;
+}
+.movieDeets{
+    color: black;
+    text-align:center;
+    margin-left:auto;
+    margin-right:auto;
+    width: 70%;
+}
+a img:hover{
+    border:2px solid #;
+    -moz-box-shadow: 0 0 5px 5px red;
+    -webkit-box-shadow: 0 0 5px 5px red;
+    box-shadow: 0 0 5px 5px red;
+}
+.back{
+    float:left;
+}
+.moviewelcome{
+    text-align:center;
+}
+#footer{
+    text-align:center;
+}
+.searchbox{
+    border-radius:5px;
+    height: 35px;
+    text-align: center;
+    font-size:12px;
+}
+.grid{
+    text-align:center;
+}
+.form-control{
+    width: 150px;
+}
+.titleyear{
+    height:25px;
+}
